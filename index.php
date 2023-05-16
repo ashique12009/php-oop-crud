@@ -53,7 +53,7 @@ if ($num > 0)
  
             echo "<tr>";
                 echo "<td>{$name}</td>";
-                echo "<td>{$price}</td>";
+                echo "<td>$" . "{$price}</td>";
                 echo "<td>{$description}</td>";
                 echo "<td>";
                     $category->id = $category_id;
@@ -62,14 +62,33 @@ if ($num > 0)
                 echo "</td>";
  
                 echo "<td>";
-                    // read one, edit and delete button will be here
+                    // Read one, edit and delete button will be here
+                    // Read, edit and delete buttons
+                    echo "<a href='read_one.php?id={$id}' class='btn btn-primary left-margin'>
+                    <span class='glyphicon glyphicon-list'></span> Read
+                    </a>
+
+                    <a href='update_product.php?id={$id}' class='btn btn-info left-margin'>
+                    <span class='glyphicon glyphicon-edit'></span> Edit
+                    </a>
+
+                    <a delete-id='{$id}' class='btn btn-danger delete-object'>
+                    <span class='glyphicon glyphicon-remove'></span> Delete
+                    </a>";
                 echo "</td>";
  
             echo "</tr>";
         }
  
     echo "</table>"; 
-    // paging buttons will be here
+
+    // Specify the page where paging is used
+    $page_url = "index.php?";
+
+    // Count all products in the database to calculate total pages
+    $total_rows = $product->countAll();
+    // Paging buttons will be here
+    include_once "paging.php";
 }
 else
 {
