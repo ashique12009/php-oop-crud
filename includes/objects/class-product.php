@@ -56,4 +56,21 @@ class ClassProduct
         }
 
     }
+
+    function readAll($from_record_num, $records_per_page)
+    {
+        $query = "SELECT
+                    id, name, description, price, category_id
+                    FROM
+                    " . $this->table_name . "
+                    ORDER BY
+                    name ASC
+                    LIMIT
+                    {$from_record_num}, {$records_per_page}";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt;
+    }
 }
