@@ -15,12 +15,12 @@ class ClassCreateTable
             `id` int(11) NOT NULL AUTO_INCREMENT,
             `name` varchar(32) NOT NULL,
             `description` text NOT NULL,
-            `price` int(11) NOT NULL,
+            `price` decimal(6, 2) NOT NULL,
             `category_id` int(11) NOT NULL,
             `created` datetime NOT NULL,
             `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (`id`)
-            ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;";
+            ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;";
 
         if ($this->dbConnection->query($sqlProductTable) === FALSE)
         {
@@ -33,7 +33,7 @@ class ClassCreateTable
             `created` datetime NOT NULL,
             `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (`id`)
-            ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;";
+            ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;";
 
         if ($this->dbConnection->query($sqlCategoryTable) === FALSE)
         {
