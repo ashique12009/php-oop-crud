@@ -14,7 +14,7 @@ $dbConnection = $db->getConnection();
 $product = new ClassProduct($dbConnection);
 $category = new ClassCategory($dbConnection);
  
-// contents will be here
+// Contents will be here
 echo "<div class='right-button-margin'>
         <a href='index.php' class='btn btn-default pull-right'>Read Products</a>
     </div>";
