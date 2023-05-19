@@ -109,4 +109,22 @@ class ClassProduct
         $this->description = $row['description'];
         $this->category_id = $row['category_id'];
     }
+
+    // delete the product
+    function delete()
+    {
+        $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->id);
+
+        if ($result = $stmt->execute())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
