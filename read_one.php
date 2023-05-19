@@ -1,17 +1,17 @@
 <?php
-// get ID of the product to be read
+// Get ID of the product to be read
 $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
  
-// include database and object files
+// Include database and object files
 include_once 'includes/config/class-database.php';
 include_once 'includes/objects/class-product.php';
 include_once 'includes/objects/class-category.php';
  
-// get database connection
+// Get database connection
 $database = new ClassDatabase();
 $db = $database->getConnection();
  
-// prepare objects
+// Prepare objects
 $product = new ClassProduct($db);
 $category = new ClassCategory($db);
  
@@ -49,7 +49,7 @@ echo "<table class='table table-hover table-responsive table-bordered'>
     <tr>
         <td>Category</td>
         <td>";
-            // display category name
+            // Display category name
             $category->id=$product->category_id;
             $category->readName();
             echo $category->name;
@@ -57,5 +57,5 @@ echo "<table class='table table-hover table-responsive table-bordered'>
     </tr>
 </table>";
  
-// set footer
+// Set footer
 include_once "layout_footer.php";
