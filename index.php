@@ -19,13 +19,13 @@ include_once "layout_header.php";
 echo "<div class='right-button-margin'><a href='create_product.php' class='btn btn-default pull-right'>Create Product</a></div>";
 
 // Page given in URL parameter, default page is one
-$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
  
 // Set number of records per page
 $records_per_page = 5;
  
 // Calculate for the query LIMIT clause
-$from_record_num = ($records_per_page * $page) - $records_per_page;
+$from_record_num = ($records_per_page * $current_page) - $records_per_page;
  
 // Retrieve records here
 
