@@ -14,6 +14,7 @@
 // Set page headers
 $page_title = "Read Product";
 include_once "layout_header.php";
+include_once "paging.php";
  
 // Contents will be here
 echo "<div class='right-button-margin'><a href='create_product.php' class='btn btn-default pull-right'>Create Product</a></div>";
@@ -87,8 +88,9 @@ if ($num > 0)
 
     // Count all products in the database to calculate total pages
     $total_rows = $product->countAll();
+
     // Paging buttons will be here
-    include_once "paging.php";
+    echo ashique_range_pagination($current_page, $page_url, $total_rows, $records_per_page);
 }
 else
 {
